@@ -268,49 +268,7 @@ For small workloads, local execution can therefore provide lower latency.
 
 ---
 
-## Project Structure
-
-A possible repository structure is:
-
-```text
-aws-serverless-object-detection/
-│
-├── README.md
-├── src/
-│   ├── app.py
-│   ├── app_flask_client.py
-│   └── yolo_detection_aws.py
-│
-├── lambda/
-│   └── lambda_function.py
-│
-├── docs/
-│   ├── architecture.png
-│   └── project-report.pdf
-│
-├── requirements.txt
-└── .gitignore
-```
-
-> Adjust the structure above to match the actual files in the repository.
-
----
-
 ## Getting Started
-
-### Prerequisites
-
-* Python 3.x
-* Flask
-* OpenCV
-* NumPy
-* boto3
-* AWS account
-* Configured AWS credentials
-* Amazon S3 bucket
-* AWS Lambda function
-* Amazon DynamoDB table
-* YOLOv3-tiny configuration and model files
 
 ### Install Dependencies
 
@@ -334,8 +292,6 @@ python app_flask_client.py
 
 ### AWS Execution
 
-Configure your AWS credentials and required AWS resources before running the cloud implementation.
-
 The cloud workflow is:
 
 ```text
@@ -353,50 +309,3 @@ DynamoDB
 ```
 
 ---
-
-## Security
-
-**Never commit AWS credentials, access keys, secret keys, or other sensitive information to this repository.**
-
-Use environment variables, AWS IAM roles, or the AWS credential configuration mechanisms instead.
-
-Example `.gitignore` entries:
-
-```gitignore
-.env
-*.pem
-.aws/
-__pycache__/
-*.pyc
-```
-
----
-
-## Academic Context
-
-**Course:** Data-Intensive Computing
-**Semester:** 2024S
-**Institution:** Technische Universität Wien (TU Wien)
-**Exercise:** Exercise 3 – Computational Offloading
-**Group:** Group 21
-**Author:** Aman Bhardwaj
-
----
-
-## Conclusion
-
-The project demonstrates the practical use of **computational offloading for object detection** by comparing local execution with a serverless AWS implementation.
-
-Local execution achieved a lower average inference time of **0.38 seconds per image**, compared with **0.45 seconds per image** for AWS Lambda. However, the cloud implementation provides greater scalability and reduces the computational requirements of the client.
-
-Both approaches achieved an average confidence score of **0.81**, demonstrating comparable detection performance.
-
-Overall, **local execution is suitable for small workloads where low latency is important, while cloud-based execution is more suitable for scalable workloads with variable demand**.
-
----
-
-## Author
-
-**Aman Bhardwaj**
-
-Technische Universität Wien (TU Wien)
